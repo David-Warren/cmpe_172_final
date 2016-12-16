@@ -1,6 +1,7 @@
 var router = require('express').Router();
 var categories = require("./categoryModel");
 
+//get
 router.route('/')
   .get(function(req, res){
 	categories.find({}, function(err, data){
@@ -12,7 +13,7 @@ router.route('/')
 	});  
   });
  
- //add
+ //add/post
   router.route('/').post(function(req, res){
 		var categoryData = {name: req.body.name};
 		var newCategory = new categories(categoryData);
