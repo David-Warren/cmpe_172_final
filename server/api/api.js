@@ -9,5 +9,5 @@ router.get("/",function(req,res){
 });
 router.use('/users', require('./user/userRoutes'));
 router.use('/posts', require('.post/postRoutes'));
- 
+router.use('/categories', require('./category/categoryRoutes'));
 module.exports = router;
