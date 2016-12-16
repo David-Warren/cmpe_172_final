@@ -12,6 +12,9 @@ mongoose.connect(config.db.url);
  app.use(bodyParser.urlencoded({ extended: true }));
  app.use(bodyParser.json());
 
+//My non generated stuff now
+var collections = database.collections;
+var database = mongoose.connection;
 
 //In a large application, 
 //things could easily get out of control 
