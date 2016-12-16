@@ -3,8 +3,6 @@ var user = require("./userModel");
 //route() will allow you to use same path for different HTTP operation.
 //So if you have same URL but with different HTTP OP such as POST,GET etc
 //Then use route() to remove redundant code.
-
-//working
 router.route('/')
   .get(function(req, res){
 	  
@@ -16,21 +14,19 @@ router.route('/')
 		 }
 
 	 });
-    console.log('Hey from user!!');
-	//res.send("Got a GET request");
   });
- //working
+
 router.route('/')
 	.post(function(req, res){
 			var userData = {username: req.body.name,
 							address: req.body.address};
 			var account = new user(userData);
 			account.save(function(err, records){
-				res.send('User successfully inserted');
+				res.send('User inserted');
 			});
 	});
 	
-//working
+
 router.route('/:user_id')
 	.get(function(req, res){
 		var id = req.params.user_id;
@@ -42,7 +38,7 @@ router.route('/:user_id')
 			}
 		});
 	});
-//working
+
 router.route('/:user_id')
 		.put(function(req, res){
 			var id = req.params.user_id;
@@ -55,12 +51,12 @@ router.route('/:user_id')
 				if(err){
 					res.send(err);
 				}else{
-					res.send("User successfully updated");
+					res.send("User updated");
 				}
 			});
 			
 		});
-  //working
+
  router.route('/:user_id')
 		.delete(function(req, res){
 			var id = req.params.user_id;
@@ -68,7 +64,7 @@ router.route('/:user_id')
 				if(err){
 					res.send(err);
 				}else{
-					res.send("User successfully deleted");
+					res.send("User deleted");
 				}
 				
 			});
@@ -76,8 +72,7 @@ router.route('/:user_id')
 			
 			
 		});
-  
-  //error-handling middleware
+ 
 router.get('*', function(req, res, next){
 	var err = new Error();
 	err.status = 404;
