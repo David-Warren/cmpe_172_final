@@ -1,11 +1,5 @@
 var router = require('express').Router();
 var post = require("./postModel");
-//var categories = require("../category/categoryModel");
-//var user = require("../user/userModel");
-// setup boilerplate route jsut to satisfy a request
-// for building
-
-//working
 router.route('/')
   .get(function(req, res){
 	post.find({})
@@ -18,10 +12,8 @@ router.route('/')
 			res.json(data);
 		}
 	});
-    console.log('Hey from post!!');
   });
   
-  //ehh, works enough
   router.route('/')
 	.post(function(req,res){
 		var postData = {title: req.body.title,
@@ -33,7 +25,7 @@ router.route('/')
 			if(err){
 				res.send(err);
 			}else{
-				res.send("Post added successfully");
+				res.send("Post added");
 			}
 		});
 	});
@@ -46,11 +38,8 @@ router.route('/')
 					res.send(err);
 				}else{
 					res.json(data);
-				}
-				
-			});
-			
-			
+				}				
+			});			
 		});
 		
 router.route('/:post_id')
@@ -67,7 +56,7 @@ router.route('/:post_id')
 			if(err){
 				res.send(err);
 			}else{
-				res.send("Post updated successfully");
+				res.send("Post updated");
 			}
 			
 		});
@@ -81,7 +70,7 @@ router.route('/:post_id')
 			if(err){
 				res.send(err);
 			}else{
-				res.send("Post deleted successfully")
+				res.send("Post deleted")
 			}
 		});
 		
