@@ -3,6 +3,6 @@ module.exports = {
 logging: false,
   db: {
         // the database url to connect!                                                                                                                                              
-        url: 'mongodb://'
+        url: 'mongodb: ec2-54-183-68-190.us-west-1.compute.amazonaws.com/Port:27017'
     }
 }
